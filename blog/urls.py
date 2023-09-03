@@ -17,14 +17,16 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 
+from apps.article import views
 from apps.article.views import ArticleViewSet
 
-router = routers.SimpleRouter()
+router = routers.SimpleRouter(trailing_slash=True)
 router.register(r'article', ArticleViewSet,basename="article")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
+    path('', views.HomeView.as_view(), name='home'),
     # path('article/', include('apps.article.urls')),
     path('', include(router.urls)),
 

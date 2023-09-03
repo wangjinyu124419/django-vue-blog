@@ -1,8 +1,17 @@
 <template>
-    <div v-for="article in info.results" v-bind:key="article.url" id="articles">
-        <div class="article-title">
-            {{ article.title }}
+    <div v-for="article in info" v-bind:key="article.url" id="articles">
+        <div>
+            <span
+                  v-for="tag in article.tags"
+                  v-bind:key="tag"
+                  class="tag"
+            >
+                {{ tag.name }}
+            </span>
         </div>
+      <div class="article-title">
+            {{ article.title }}
+      </div>
     </div>
 </template>
 
@@ -18,11 +27,7 @@
         },
         mounted() {
             axios
-                .get('http://127.0.0.1:8000/article', {
-    headers: {
-   Referer: 'http://localhost:8080/'
- }
-})
+                .get('/api/article/' )
                 .then(response => (this.info = response.data))
         }
     }
