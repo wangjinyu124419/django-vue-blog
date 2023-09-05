@@ -180,7 +180,8 @@ class ArticleViewSet(viewsets.ViewSet):
     def list(self, request):
         queryset = Article.objects.all()
         serializer = ArticleSerializer(queryset, many=True)
-        return Response(serializer.data)
+        data =  serializer.data
+        return Response(data)
 
     def retrieve(self, request, pk=None):
         queryset = Article.objects.all()

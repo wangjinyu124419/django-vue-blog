@@ -89,7 +89,7 @@ WSGI_APPLICATION = 'blog.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': "blog",
+        'NAME': "vue_blog",
         'USER': DJANGO_MYSQL_USER,
         'PASSWORD': DJANGO_MYSQL_PASSWORD,
         'HOST': DJANGO_MYSQL_HOST,
